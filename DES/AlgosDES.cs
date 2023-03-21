@@ -22,23 +22,28 @@ namespace lab1_consl_DES_Algoritm.DES
             this.KeyText = Key;
             this.Encryp();
         }
+        public AlgosDES(string Text, string Key, bool isDecode)
+        {
+            this.OpenText = Text;
+            this.KeyText = Key;
+            this.DecodeText = this.Decoding(OpenText);
+        }
 
         public void Encryp()
         {
             InitializationPosition initializationKey = new InitializationPosition(KeyText);
-            Keys keys = new Keys(initializationKey.BinShifroText.ToCharArray());
+            Keys keys = new Keys(ExtraConverter.StrToASCII(KeyText).ToCharArray());
 
             InitializationPosition initializationText = new InitializationPosition(OpenText);
 
             //Item1 - L
             //Item2 - R
-            (string, string) Operands = RoundFeistel(
+            (string, string) Operands = (
                     new string(initializationText.L0),
-                    new string(initializationText.R0),
-                    keys.AllKeys[0]
+                    new string(initializationText.R0)
                 );
 
-            for(int i = 1; i < 16; i++)
+            for(int i = 0; i < 16; i++)
             {
                 Operands = RoundFeistel(
                         new string(Operands.Item1),
@@ -47,9 +52,9 @@ namespace lab1_consl_DES_Algoritm.DES
                     );
             }
 
-            this.CipherText = BitOperations.GetStringFromBinary(
+            this.CipherText = ExtraConverter.BitsASCIIToString(
                     LastPermutation(
-                            Operands.Item1.ToCharArray(), Operands.Item2.ToCharArray()
+                            Operands.Item2.ToCharArray(), Operands.Item1.ToCharArray()
                         ));
         }
         public string Decoding(string shifroText)
@@ -61,13 +66,12 @@ namespace lab1_consl_DES_Algoritm.DES
 
             //Item1 - L
             //Item2 - R
-            (string, string) Operands = RoundFeistel(
-                    new string(initializationText.L16),
-                    new string(initializationText.R16),
-                    keys.AllKeys[15]
+            (string, string) Operands = (
+                    new string(initializationText.L0),
+                    new string(initializationText.R0)
                 );
 
-            for (int i = 14; i >= 0; i--)
+            for (int i = 15; i >= 0; i--)
             {
                 Operands = RoundFeistel(
                         new string(Operands.Item1),
@@ -75,13 +79,11 @@ namespace lab1_consl_DES_Algoritm.DES
                         keys.AllKeys[i]
                     );
             }
-
-            return BitOperations.GetStringFromBinary(
-                    StartPermutation(
-                        Operands.Item1.ToCharArray(), 
-                        Operands.Item2.ToCharArray(),
-                        initializationText._StartPosition
-                ));
+            this.DecodeText = ExtraConverter.BitsASCIIToString(
+                    LastPermutation(
+                            Operands.Item2.ToCharArray(), Operands.Item1.ToCharArray()
+                        ));
+            return this.DecodeText;
         }
         public (string, string) RoundFeistel(string Ln, string Rn, char[] Kn)
         {

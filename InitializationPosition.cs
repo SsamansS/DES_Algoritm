@@ -33,7 +33,7 @@ namespace lab1_consl_DES_Algoritm
         public InitializationPosition(string ShifroText)
         {
             this.ShifroText = ShifroText;
-            this.BinShifroText = GetBinaryFormStr(ShifroText);
+            this.BinShifroText = ExtraConverter.StrToASCII(ShifroText);//GetBinaryFormStr(ShifroText);
 
             this.StartPermutation = new char[64];
             SetStartPermutation(this.BinShifroText);
@@ -42,7 +42,7 @@ namespace lab1_consl_DES_Algoritm
         public InitializationPosition(string ShifroText, bool isDecode = false)
         {
             this.ShifroText = ShifroText;
-            this.BinShifroText = GetBinaryFormStr(ShifroText);
+            this.BinShifroText = ExtraConverter.StrToASCII(ShifroText);//GetBinaryFormStr(ShifroText);
 
             this.LastPermutation = new char[64];
             SetLastPermutation(this.BinShifroText);
