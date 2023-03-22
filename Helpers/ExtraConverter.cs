@@ -18,6 +18,11 @@ namespace lab1_consl_DES_Algoritm.Helpers
                     );
             }
 
+            if(binStr.Length > 64)
+            {
+                throw new Exception("Недопустимая длина ключа или текста");
+            }
+
             return BitOperations.GetBinaryFormChar(binStr, 64);
         }
         static string CharToBitsASCII(char ch)

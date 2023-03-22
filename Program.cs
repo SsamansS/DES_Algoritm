@@ -13,7 +13,7 @@ namespace lab1_consl_DES_Algoritm
     {
         static void Main(string[] args)
         {
-            AlgosDES des = new AlgosDES("03kfsgd", "03");
+            AlgosDES des = new AlgosDES("03d", "fdgd");
             Console.WriteLine($"des.OpenText: {des.OpenText}");
             Console.WriteLine($"des.Clipher: {des.CipherText}");
             Console.WriteLine($"Decoding: {des.Decoding(des.CipherText)}");
