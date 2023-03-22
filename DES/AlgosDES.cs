@@ -16,17 +16,14 @@ namespace lab1_consl_DES_Algoritm.DES
         public string CipherText { get; set; }
         public string DecodeText { get; set; }
 
-        public AlgosDES(string Text, string Key)
+        public AlgosDES(string Text, string Key, bool isDecode = false)
         {
             this.OpenText = Text;
             this.KeyText = Key;
-            this.Encryp();
-        }
-        public AlgosDES(string Text, string Key, bool isDecode)
-        {
-            this.OpenText = Text;
-            this.KeyText = Key;
-            this.DecodeText = this.Decoding(OpenText);
+            if (isDecode)
+                this.Decoding(OpenText);
+            else
+                this.Encryp();
         }
 
         public void Encryp()
