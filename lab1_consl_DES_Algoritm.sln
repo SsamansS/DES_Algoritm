@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.33328.57
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab1_consl_DES_Algoritm", "lab1_consl_DES_Algoritm.csproj", "{1C75C36A-3231-4CB3-8A08-6031540E53E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab1_consl_DES_Algoritm", "lab1_consl_DES_Algoritm.csproj", "{1C75C36A-3231-4CB3-8A08-6031540E53E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DES_App", "..\DES_App\DES_App.csproj", "{3298FACB-EFE1-4003-8C42-870D27CED0AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1C75C36A-3231-4CB3-8A08-6031540E53E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C75C36A-3231-4CB3-8A08-6031540E53E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C75C36A-3231-4CB3-8A08-6031540E53E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3298FACB-EFE1-4003-8C42-870D27CED0AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3298FACB-EFE1-4003-8C42-870D27CED0AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3298FACB-EFE1-4003-8C42-870D27CED0AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3298FACB-EFE1-4003-8C42-870D27CED0AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
