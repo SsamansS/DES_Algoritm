@@ -13,19 +13,13 @@ namespace lab1_consl_DES_Algoritm
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            AlgosDES des = new AlgosDES("03kfsgd", "03");
+            Console.WriteLine($"des.OpenText: {des.OpenText}");
+            Console.WriteLine($"des.Clipher: {des.CipherText}");
+            Console.WriteLine($"Decoding: {des.Decoding(des.CipherText)}");
 
-            AlgosDES des = new AlgosDES("0123456789ABCDEF", "133457799BBCDFF1");
-            Console.WriteLine(des.OpenText);
-            Console.WriteLine(des.CipherText);
-            Console.WriteLine($"des.Clipher: ");
-
-            AlgosDES des2 = new AlgosDES(des.CipherText, des.KeyText);
-            Console.WriteLine($"des2.Clipher: {des2.CipherText}");
-
-            Console.WriteLine(des.Decoding(des.CipherText));
-
-            Console.WriteLine(des.CipherText);
+            AlgosDES des2 = new AlgosDES(des.CipherText, des.KeyText, true);
+            Console.WriteLine(des2.CipherText);
             Console.WriteLine("Hello World!");
         }
     }

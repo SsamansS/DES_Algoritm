@@ -30,9 +30,13 @@ namespace lab1_consl_DES_Algoritm.Helpers
             List<string> res = new List<string> { };
             for(int i = 1; i < bits.Length; i++)
             {
-                if(i % divider == 0 || i == bits.Length-1)
+                if(i % divider == 0 )
                 {
                     char[] dest = bits.Skip(i - divider).Take(divider).ToArray();
+                    res.Add(new string(dest));
+                } else if(i == bits.Length - 1)
+                {
+                    char[] dest = bits.Skip(i - divider + 1).Take(divider).ToArray();
                     res.Add(new string(dest));
                 }
             }
@@ -48,7 +52,7 @@ namespace lab1_consl_DES_Algoritm.Helpers
         }
         public static string GetBinaryFormChar(string charStr, int length)
         {
-            int countOfGap = Math.Abs(8 - charStr.Length);
+            int countOfGap = Math.Abs(length - charStr.Length);
 
             return countOfGap == 0 ? charStr : charStr.Insert(0, new string('0', countOfGap));
         }
