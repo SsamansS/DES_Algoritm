@@ -121,15 +121,5 @@ namespace lab1_consl_DES_Algoritm.DES
 
             return new string(ClipherN);
         }
-        public string LastPermutation(char[] BinStr)
-        {
-            char[] ClipherN = new char[BinStr.Length];
-            for (int i = 0; i < ClipherN.Length; i++)
-            {
-                ClipherN[i] = BinStr[desStatics._FinishPosition[i]];
-            }
-
-            return new string(ClipherN);
-        }
     }
 }
