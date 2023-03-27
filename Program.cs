@@ -19,7 +19,7 @@ namespace lab1_consl_DES_Algoritm
             Console.WriteLine($"Decoding: {des.Decoding(des.CipherText)}");
 
             AlgosDES des2 = new AlgosDES(des.CipherText, des.KeyText, true);
-            Console.WriteLine(des2.CipherText);
+            Console.WriteLine(des2.DecodeText);
             Console.WriteLine("Hello World!");
         }
     }

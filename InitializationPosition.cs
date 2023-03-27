@@ -33,20 +33,11 @@ namespace lab1_consl_DES_Algoritm
         public InitializationPosition(string ShifroText)
         {
             this.ShifroText = ShifroText;
-            this.BinShifroText = ExtraConverter.StrToASCII(ShifroText);//GetBinaryFormStr(ShifroText);
+            this.BinShifroText = ExtraConverter.StrToASCII(ShifroText);
 
             this.StartPermutation = new char[64];
             SetStartPermutation(this.BinShifroText);
             SetL0anbR0();
-        }
-        public InitializationPosition(string ShifroText, bool isDecode = false)
-        {
-            this.ShifroText = ShifroText;
-            this.BinShifroText = ExtraConverter.StrToASCII(ShifroText);//GetBinaryFormStr(ShifroText);
-
-            this.LastPermutation = new char[64];
-            SetLastPermutation(this.BinShifroText);
-            SetL16anbR16();
         }
         public void SetLastPermutation(string BinStr)
         {
